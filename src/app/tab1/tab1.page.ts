@@ -22,7 +22,7 @@ export class Tab1Page implements OnInit{
 
   ngOnInit(){
    this.moviesService.getFeature()
-                      .subscribe(resp=>{
+                      .subscribe( resp => {
                         console.log('Resp ', resp);
                         this.peliculasRecientes = resp.results;
                       });
