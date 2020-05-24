@@ -7,15 +7,15 @@ const URL = 'https://image.tmdb.org/t/p';
 })
 export class ImagenPipe implements PipeTransform {
 
-  transform(img: string, size: string='w500'): string {
+  transform(img: string, size: string = 'w500'): string {
 
-    if(!img){
+    if (!img){
       return;
     }
-    const imgUrl = `${URL}/${size}/${img}`;
+    const imgUrl = `${ URL }/${ size }/${ img }`;
     console.log('URL', imgUrl);
 
-    return null;
+    return imgUrl;
   }
 
 }
