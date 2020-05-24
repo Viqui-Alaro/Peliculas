@@ -5,7 +5,9 @@
   <ion-slides>
     <ion-slide *ngFor="let pelicula of peliculasRecientes">
 
-      <h1>{{pelicula.backdrop_path</h1>
+      <ion-card>
+        <img [src]="pelicula.backdrop_path | imagen ">
+      </ion-card>
     </ion-slide>
 
   </ion-slides>
