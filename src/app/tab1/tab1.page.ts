@@ -12,6 +12,7 @@ import { Pelicula } from '../interfaces/interfaces';
 export class Tab1Page implements OnInit{
 
   peliculasRecientes: Pelicula[] = [];
+  populares: Pelicula[] = [];
 
 
   constructor(private moviesService: MoviesService) {}
