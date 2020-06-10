@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle',
@@ -8,10 +9,23 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DetalleComponent implements OnInit {
 
   @Input() id;
-  constructor() { }
+  constructor(public alertController: AlertController) { }
 
   ngOnInit() {
-    console.log('ID',this.id);
+    console.log('ID', this.id);
+   
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: this.id,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
