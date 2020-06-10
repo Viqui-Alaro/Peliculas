@@ -5,6 +5,7 @@ import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backd
 import { PipesModule } from '../pipes/pipes.module';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 import { ShideshowParesComponent } from './shideshow-pares/shideshow-pares.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 
@@ -12,12 +13,14 @@ import { ShideshowParesComponent } from './shideshow-pares/shideshow-pares.compo
   declarations: [
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
-    ShideshowParesComponent
+    ShideshowParesComponent,
+    DetalleComponent
   ],
   exports: [
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
-    ShideshowParesComponent
+    ShideshowParesComponent,
+    DetalleComponent
   ],
   imports: [
     CommonModule,
