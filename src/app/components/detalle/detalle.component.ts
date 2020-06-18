@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-detalle',
@@ -9,11 +10,14 @@ import { AlertController } from '@ionic/angular';
 export class DetalleComponent implements OnInit {
 
   @Input() id;
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, private moviesService: MoviesService) { }
 
   ngOnInit() {
-    console.log('ID', this.id);
-   
+    //console.log('ID', this.id);
+   this.moviesService.getPeliculaDetalle( this.id )
+    .subscribe(resp =>{
+      console.log(resp);
+    });
   }
 
   async presentAlert() {

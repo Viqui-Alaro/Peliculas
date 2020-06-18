@@ -16,6 +16,7 @@ export class MoviesService {
   private ejecutarQuery<T>(query: string){
     query = URL + query;
     query += `&api_key=${apiKey}&language=es&include_image_language=es`;
+    console.log(query);
     return this.http.get<T>(query);
   }
 
@@ -42,6 +43,10 @@ export class MoviesService {
 
     
     return this.ejecutarQuery<RespuestaMDB>(`/discover/movie?primary_release_date.gte=${inicio}&primary_release_date.lte=${fin}`);
+  }
+
+  getPeliculaDetalle( id: string){
+    return this.ejecutarQuery(`/movie/${id}?a=1`);
   }
 
   
