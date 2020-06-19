@@ -13,8 +13,13 @@ export class DetalleComponent implements OnInit {
   constructor(public alertController: AlertController, private moviesService: MoviesService) { }
 
   ngOnInit() {
-    //console.log('ID', this.id);
+    // console.log('ID', this.id);
    this.moviesService.getPeliculaDetalle( this.id )
+    .subscribe(resp => {
+      console.log(resp);
+    });
+
+   this.moviesService.getActoresPelicula( this.id )
     .subscribe(resp => {
       console.log(resp);
     });
