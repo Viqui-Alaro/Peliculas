@@ -55,4 +55,18 @@
     </ion-row>
   </ion-grid>
 
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>Actores</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-slides [options]="slideOptActores">
+    <ion-slide *ngFor="let actor of actores">
+      <ion-card class="card-actor">
+        <img [src]="actor.profile_path | imagen">
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>
