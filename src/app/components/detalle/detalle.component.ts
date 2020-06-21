@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { MoviesService } from '../../services/movies.service';
 import { PeliculaDetalle, Cast } from '../../interfaces/interfaces';
 
@@ -21,7 +21,8 @@ export class DetalleComponent implements OnInit {
     spacebetween: -5
   };
 
-  constructor(public alertController: AlertController, private moviesService: MoviesService) { }
+  constructor(public alertController: AlertController, private moviesService: MoviesService,
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {
     // console.log('ID', this.id);
@@ -37,6 +38,11 @@ export class DetalleComponent implements OnInit {
       this.actores = resp.cast;
     });
   }
+
+  regresar(){
+    this.modalCtrl.dismiss();
+  }
+
 
   async presentAlert() {
     const alert = await this.alertController.create({
