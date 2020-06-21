@@ -12,6 +12,7 @@ export class DetalleComponent implements OnInit {
 
   @Input() id;
   pelicula: PeliculaDetalle = {};
+  oculto = 150;
   constructor(public alertController: AlertController, private moviesService: MoviesService) { }
 
   ngOnInit() {
