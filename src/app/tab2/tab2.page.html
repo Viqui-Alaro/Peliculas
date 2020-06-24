@@ -10,11 +10,22 @@
   <ion-searchbar placeholder="Buscar Película" 
                 animated
                 debounce="700"
-                [value]="textoBuscar">
+                [value]="textoBuscar"
+                (ionChange)="buscar( $event )">
 
   </ion-searchbar>
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
 
+  <ion-list>
+    <ion-list-header>
+      <iion-lavel>
+        Ideas
+      </iion-lavel>
+    </ion-list-header>
+   <ion-item>
+     <ion-label>Awesome Label</ion-label>
+   </ion-item> 
+  </ion-list>
 </ion-content>

@@ -11,4 +11,9 @@ export class Tab2Page {
 
   constructor() {}
 
+  buscar( event ){
+   const valor = event.detail.value;
+   console.log(valor);
+  }
+
 }
