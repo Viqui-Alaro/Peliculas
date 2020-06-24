@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   textoBuscar = '';
+  ideas: string[] = ['Spiderman', 'Avenger', 'El señor de los anillos', 'El aro', 'los PicaPiedras', 'Guardianes de la galaxia', 'X-Men', 'Bella y la Bestia', 'Cenicienta', 'Avatar', 'Parasitos']
 
   constructor() {}
 
