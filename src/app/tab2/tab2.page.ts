@@ -10,7 +10,7 @@ import { MoviesService } from '../services/movies.service';
 export class Tab2Page {
 
   textoBuscar = '';
-  peliculas : Pelicula[] = [];
+  peliculas: Pelicula[] = [];
   ideas: string[] = ['Spiderman', 'Avenger', 'El señor de los anillos', 'El aro', 'los PicaPiedras', 'Guardianes de la galaxia', 'X-Men', 'Bella y la Bestia', 'Cenicienta', 'Avatar', 'Parasitos']
 
   constructor( private moviesService: MoviesService) {}
@@ -21,7 +21,8 @@ export class Tab2Page {
    this.moviesService.buscarPeliculas( valor )
         .subscribe( resp => {
           console.log( resp );
-        })
+          this.peliculas = resp['results'];
+        });
  
   }
 
