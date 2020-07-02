@@ -40,7 +40,7 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6" *ngFor="let pelicula of peliculas">
-        <ion-card>
+        <ion-card (click)="detalle( pelicula.id )">
           <img [src]="pelicula.poster_path | imagen">
           <ion-card-header>
             <ion-card-subtitle>
