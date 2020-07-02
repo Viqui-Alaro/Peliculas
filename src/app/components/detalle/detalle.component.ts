@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { MoviesService } from '../../services/movies.service';
 import { PeliculaDetalle, Cast } from '../../interfaces/interfaces';
+import { DataLocalService } from '../../services/data-local.service';
 
 @Component({
   selector: 'app-detalle',
@@ -22,7 +23,8 @@ export class DetalleComponent implements OnInit {
   };
 
   constructor(public alertController: AlertController, private moviesService: MoviesService,
-              private modalCtrl: ModalController) { }
+              private modalCtrl: ModalController,
+              private dataLocal: DataLocalService) { }
 
   ngOnInit() {
     // console.log('ID', this.id);
@@ -43,6 +45,9 @@ export class DetalleComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  favorito(){
+    this.dataLocal.guardarPelicula(this.pelicula);
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({
