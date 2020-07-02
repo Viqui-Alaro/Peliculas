@@ -18,6 +18,12 @@ export class Tab2Page {
 
   buscar( event ){
    const valor = event.detail.value;
+
+   if ( valor.length ==0 ){
+      this.buscando = false;
+      this.peliculas = [];
+      return;
+    }
    //console.log(valor);
    this.buscando = true;
    this.moviesService.buscarPeliculas( valor )
@@ -26,7 +32,7 @@ export class Tab2Page {
           this.peliculas = resp['results'];
           this.buscando = false;
         });
- 
+
   }
 
 }
