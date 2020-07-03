@@ -13,15 +13,23 @@ export class DataLocalService {
 
   guardarPelicula( pelicula: PeliculaDetalle){
     let existe = false;
+    let mensaje = '';
 
     for (const peli of this.peliculas){
-      if(peli.id === pelicula.id){
+      if (peli.id === pelicula.id){
         existe = true;
         break;
       }
     }
 
-    this.peliculas.push( pelicula );
+    if (existe){
+      this.peliculas = this.peliculas.filter( peli => peli.id !== pelicula.id);
+      mensaje = 'Removido de favoritos';
+    }else{
+      this.peliculas.push( pelicula );
+      mensaje = 'Agregado a favoritos';
+    }
+    
     this.storage.set('peliculas' , this.peliculas );
   }
 
