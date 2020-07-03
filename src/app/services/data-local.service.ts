@@ -12,6 +12,14 @@ export class DataLocalService {
   constructor( private storage: Storage) { }
 
   guardarPelicula( pelicula: PeliculaDetalle){
+    let existe = false;
+
+    for (const peli of this.peliculas){
+      if(peli.id === pelicula.id){
+        existe = true;
+        break;
+      }
+    }
 
     this.peliculas.push( pelicula );
     this.storage.set('peliculas' , this.peliculas );
