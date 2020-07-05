@@ -18,7 +18,7 @@ export class MoviesService {
   private ejecutarQuery<T>(query: string){
     query = URL + query;
     query += `&api_key=${apiKey}&language=es&include_image_language=es`;
-    console.log(query);
+    //console.log(query);
     return this.http.get<T>(query);
   }
 
@@ -59,12 +59,16 @@ export class MoviesService {
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
   }
 
-  cargarGeneros(){
-    this.ejecutarQuery(`/genre/movie/list?a=1`).subscribe(resp =>{
-      this.generos = resp['genres'];
-      console.log(this.generos);
+  cargarGeneros(): Promise<any[]>{
+
+    return new Promise( resolve =>{
+      this.ejecutarQuery(`/genre/movie/list?a=1`).subscribe(resp =>{
+        this.generos = resp['genres'];
+        console.log(this.generos);
+        resolve(this.generos);
+      });
     });
   }
 
-  
+
 }

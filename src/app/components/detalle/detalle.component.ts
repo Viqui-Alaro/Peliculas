@@ -35,13 +35,13 @@ export class DetalleComponent implements OnInit {
 
    this.moviesService.getPeliculaDetalle( this.id )
     .subscribe(resp => {
-      console.log(resp);
+    //  console.log(resp);
       this.pelicula = resp;
     });
 
    this.moviesService.getActoresPelicula( this.id )
     .subscribe(resp => {
-      console.log(resp);
+      //console.log(resp);
       this.actores = resp.cast;
     });
   }
