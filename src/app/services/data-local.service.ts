@@ -44,6 +44,8 @@ export class DataLocalService {
 
     this.presentToast( mensaje);
     this.storage.set('peliculas' , this.peliculas );
+
+    return !existe;
   }
 
   async cargarFavoritos(){

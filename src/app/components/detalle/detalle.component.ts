@@ -31,8 +31,8 @@ export class DetalleComponent implements OnInit {
     // console.log('ID', this.id);
 
    this.dataLocal.existePelicula(this.id)
-   .then(exite => this.estrella = (exite) ? 'star' : 'star-outline' );
-   
+   .then(existe => this.estrella = (existe) ? 'star' : 'star-outline' );
+
    this.moviesService.getPeliculaDetalle( this.id )
     .subscribe(resp => {
       console.log(resp);
@@ -51,7 +51,9 @@ export class DetalleComponent implements OnInit {
   }
 
   favorito(){
-    this.dataLocal.guardarPelicula(this.pelicula);
+    const existe = this.dataLocal.guardarPelicula(this.pelicula);
+    this.estrella = (existe) ? 'star' : 'star-outline' ;
+
   }
 
   async presentAlert() {
