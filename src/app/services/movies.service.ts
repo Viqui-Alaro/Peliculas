@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RespuestaMDB, PeliculaDetalle, RespuestaCredits } from '../interfaces/interfaces';
+import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Genre } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
 const URL = environment.url;
@@ -11,7 +11,7 @@ const apiKey = environment.apiKey;
 })
 export class MoviesService {
 
-  generos: any[] = [];
+  generos: Genre[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -59,7 +59,7 @@ export class MoviesService {
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
   }
 
-  cargarGeneros(): Promise<any[]>{
+  cargarGeneros(): Promise<Genre[]>{
 
     return new Promise( resolve =>{
       this.ejecutarQuery(`/genre/movie/list?a=1`).subscribe(resp =>{

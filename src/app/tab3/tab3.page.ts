@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliculaDetalle } from '../interfaces/interfaces';
+import { PeliculaDetalle, Genre } from '../interfaces/interfaces';
 import { DataLocalService } from '../services/data-local.service';
 import { MoviesService } from '../services/movies.service';
 
@@ -11,7 +11,7 @@ import { MoviesService } from '../services/movies.service';
 export class Tab3Page implements OnInit {
 
   peliculas: PeliculaDetalle[] = [];
-  generos: any[] = [];
+  generos: Genre[] = [];
 
   constructor( private dataLocal: DataLocalService,
                private moviesService: MoviesService) {}
