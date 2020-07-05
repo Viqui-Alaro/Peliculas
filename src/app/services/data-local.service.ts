@@ -11,7 +11,9 @@ export class DataLocalService {
   peliculas: PeliculaDetalle[] = [];
 
   constructor( private storage: Storage,
-               private toasCtrl: ToastController) { }
+               private toasCtrl: ToastController) {
+  this.cargarFavoritos();
+  }
 
 
     async presentToast( message: string) {
@@ -43,6 +45,16 @@ export class DataLocalService {
     this.presentToast( mensaje);
     this.storage.set('peliculas' , this.peliculas );
   }
+
+  async cargarFavoritos(){
+    const peliculas = await this.storage.get('peliculas');
+    this.peliculas = peliculas || [];
+    return this.peliculas;
+
+
+  }
+
+
 
 
 }
