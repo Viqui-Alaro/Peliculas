@@ -53,9 +53,6 @@ export class DataLocalService {
   }
 
   async existePelicula( id ){
-    console.log(id);
-    id = Number(id);
-    console.log(id);
 
     await this.cargarFavoritos();
     const existe = this.peliculas.find(peli => peli.id === id);

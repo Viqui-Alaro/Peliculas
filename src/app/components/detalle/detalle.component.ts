@@ -15,6 +15,7 @@ export class DetalleComponent implements OnInit {
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
   oculto = 150;
+  estrella = 'star-outline';
 
   slideOptActores = {
     slidesPerView: 3.3,
@@ -26,8 +27,12 @@ export class DetalleComponent implements OnInit {
               private modalCtrl: ModalController,
               private dataLocal: DataLocalService) { }
 
-  ngOnInit() {
+   ngOnInit() {
     // console.log('ID', this.id);
+
+   this.dataLocal.existePelicula(this.id)
+   .then(exite => this.estrella = (exite) ? 'star' : 'star-outline' );
+   
    this.moviesService.getPeliculaDetalle( this.id )
     .subscribe(resp => {
       console.log(resp);
