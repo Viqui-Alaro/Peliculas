@@ -11,6 +11,8 @@ const apiKey = environment.apiKey;
 })
 export class MoviesService {
 
+  generos: any[] = [];
+
   constructor(private http: HttpClient) { }
 
   private ejecutarQuery<T>(query: string){
@@ -55,6 +57,13 @@ export class MoviesService {
 
   getActoresPelicula( id: string){
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
+  }
+
+  cargarGeneros(){
+    this.ejecutarQuery(`/genre/movie/list?a=1`).subscribe(resp =>{
+      this.generos = resp['genres'];
+      console.log(this.generos);
+    });
   }
 
   
