@@ -19,6 +19,10 @@ export class Tab3Page implements OnInit {
   async ngOnInit(){
     this.peliculas = await this.dataLocal.cargarFavoritos();
     this.generos = await this.moviesService.cargarGeneros();
+    this.pelisPorGenero(this.generos, this.peliculas);
+  }
+
+  pelisPorGenero(generos: Genre[], peliculas: PeliculaDetalle[]){
 
   }
 
