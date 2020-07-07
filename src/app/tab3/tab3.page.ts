@@ -8,7 +8,7 @@ import { MoviesService } from '../services/movies.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page{
 
   peliculas: PeliculaDetalle[] = [];
   generos: Genre[] = [];
@@ -17,7 +17,7 @@ export class Tab3Page implements OnInit {
   constructor( private dataLocal: DataLocalService,
                private moviesService: MoviesService) {}
 
-  async ngOnInit(){
+  async ionViewWillEnter(){
     this.peliculas = await this.dataLocal.cargarFavoritos();
     this.generos = await this.moviesService.cargarGeneros();
     this.pelisPorGenero(this.generos, this.peliculas);
