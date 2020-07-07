@@ -33,6 +33,7 @@ export class DetalleComponent implements OnInit {
    this.dataLocal.existePelicula(this.id)
    .then(existe => this.estrella = (existe) ? 'star' : 'star-outline' );
 
+
    this.moviesService.getPeliculaDetalle( this.id )
     .subscribe(resp => {
     //  console.log(resp);

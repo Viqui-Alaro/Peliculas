@@ -23,13 +23,14 @@ export class Tab3Page{
     this.pelisPorGenero(this.generos, this.peliculas);
   }
 
+
   pelisPorGenero(generos: Genre[], peliculas: PeliculaDetalle[]){
     this.favoritoGenero = [];
-    generos.forEach(genero =>{
+    generos.forEach(genero => {
       this.favoritoGenero.push({
         genero: genero.name,
-        pelis: peliculas.filter( peli=>{
-          return peli.genres.find(genre=> genre.id === genero.id );
+        pelis: peliculas.filter( peli => {
+          return peli.genres.find(genre => genre.id === genero.id );
         })
       });
     });

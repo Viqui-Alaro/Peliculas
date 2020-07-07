@@ -21,6 +21,10 @@ export class ShideshowParesComponent implements OnInit {
 
   ngOnInit() {}
 
+  onClick(){
+    console.log('cargar mas');
+  }
+
   async verDetalle(id: string){
 
     const modal = await this.modalCtrl.create({
