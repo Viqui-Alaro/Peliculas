@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pelicula } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../detalle/detalle.component';
+
 
 @Component({
   selector: 'app-shideshow-pares',
@@ -11,6 +12,7 @@ import { DetalleComponent } from '../detalle/detalle.component';
 export class ShideshowParesComponent implements OnInit {
 
   @Input() peliculas: Pelicula[] = [];
+  @Output() cargarMas = new EventEmitter();
 
   slideOpts = {
     slidesPerView: 3.3,
@@ -22,7 +24,7 @@ export class ShideshowParesComponent implements OnInit {
   ngOnInit() {}
 
   onClick(){
-    console.log('cargar mas');
+    this.cargarMas.emit();
   }
 
   async verDetalle(id: string){

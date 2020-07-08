@@ -12,6 +12,7 @@ const apiKey = environment.apiKey;
 export class MoviesService {
 
   generos: Genre[] = [];
+  popularesPage = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +24,8 @@ export class MoviesService {
   }
 
   getPopulares(){
-    const query = '/discover/movie?sort_by=popularity.desc';
+    this.popularesPage++;
+    const query = `/discover/movie?sort_by=popularity.desc&page=${ this.popularesPage }`;
     return this.ejecutarQuery<RespuestaMDB>(query);
   }
 
@@ -35,7 +37,7 @@ export class MoviesService {
 
     const hoy = new Date();
     const ultimoDia = new Date( hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate();
-    const mes = hoy.getMonth()+1;
+    const mes = hoy.getMonth() + 1;
 
     let mesString;
     if(mes < 10){
